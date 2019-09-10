@@ -54,8 +54,8 @@ stages:
               echo 'deploy passed...'
 
 trigger:
-  - branches:
-      include:
-        - master
+  branches:
+    include:
+      - master
 
 variables:
