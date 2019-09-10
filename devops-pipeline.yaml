@@ -12,7 +12,7 @@ stages:
           vmImage: 'ubuntu-16.04'
         steps:
           - script: |
-              echo 'build passed...'
+              dotnet build
 
   - stage: 'test'
     condition: succeeded()
@@ -25,12 +25,12 @@ stages:
           vmImage: 'ubuntu-16.04'
         steps:
           - script: |
-              echo 'test passed...'
+              dotnet test
   
   - stage: 'pack'
     condition: succeeded()
     dependsOn:
-      - build
+      - test
     displayName: 'pack-mvc'
     jobs:
       - job:
@@ -40,7 +40,7 @@ stages:
           vmImage: 'ubuntu-16.04'
         steps:
           - script: |
-              echo 'pack passed...'
+              dotnet publish
   
   - stage: 'deploy'
     condition: succeeded()
