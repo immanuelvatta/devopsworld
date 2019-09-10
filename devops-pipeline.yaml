@@ -29,6 +29,8 @@ stages:
   
   - stage: 'pack'
     condition: succeeded()
+    dependsOn:
+      - build
     displayName: 'pack-mvc'
     jobs:
       - job:
@@ -42,6 +44,8 @@ stages:
   
   - stage: 'deploy'
     condition: succeeded()
+    dependsOn:
+      - test
     displayName: 'deploy-mvc'
     jobs:
       - job:
