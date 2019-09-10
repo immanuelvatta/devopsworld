@@ -59,4 +59,4 @@ trigger:
       - master
 
 variables:
-  - testVar: 'tuesday'
+  testVar: 'tuesday'
