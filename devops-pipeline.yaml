@@ -30,7 +30,7 @@ stages:
         steps:
           - script: |
               dotnet tool install --global sonarscanner
-              dotnet sonarscanner begin /k:"DevopsDemo2019" /o:"immanuelvatta" /d:sonar.login="cb34db27761ca448cf43f49a48d3d9e20b8f9bf3" 
+              dotnet sonarscanner begin /k:"DevopsDemo2019" /o:"immanuelv" /d:sonar.login="cb34db27761ca448cf43f49a48d3d9e20b8f9bf3" 
               dotnet build
               dotnet test -p:CollectCoverage=true
               dotnet sonarscanner end /d:sonar.login="cb34db27761ca448cf43f49a48d3d9e20b8f9bf3" 
@@ -72,4 +72,4 @@ trigger:
       - master
 
 variables:
-  sonar: 'token'
+  sonar: 'cb34db27761ca448cf43f49a48d3d9e20b8f9bf3'
