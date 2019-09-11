@@ -32,7 +32,6 @@ stages:
             displayName:  'dotnet installer'
             inputs:
               version: '2.2.401'
-        steps:
           - script: |
               dotnet tool install --global dotnet-sonarscanner
               dotnet sonarscanner begin /k:"DevopsDemo2019" /o:"immanuelv" /d:sonar.login="cb34db27761ca448cf43f49a48d3d9e20b8f9bf3" /d:sonar.host.url="https://sonarcloud.io" 
