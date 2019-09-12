@@ -82,13 +82,16 @@ stages:
     displayName: 'deploy-mvc'
     jobs:
       - job:
-        condition: succeeded()
+        condition: succeeded('pack')
         displayName: 'deploy-process'
         pool:
           vmImage: 'ubuntu-16.04'
         steps:
-          - script: |
-              echo 'working on it ...'
+          - task: AzureWebAppContainer@1
+          inputs:
+            azureSubscription: 'Free Trial(02057d28-45e4-4dd8-b2d8-c7336172e8fd)'
+            appName: 'ivdevopsdemo'
+            containers: 'immanuelvatta/devopsdemo'
 
 trigger:
   branches:
