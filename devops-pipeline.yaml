@@ -71,7 +71,7 @@ stages:
           - script: |
               docker image build --file Dockerfile --tag devopsdemo .
               docker image tag devopsdemo immanuelvatta/devopsdemo
-              docker push
+              docker push immanuelvatta/devopsdemo
 
   
   - stage: 'deploy'
