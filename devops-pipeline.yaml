@@ -66,12 +66,17 @@ stages:
           - task: Docker@2
             inputs:
               command:  'login'
-              containerRegistry: 'docker'
-            displayName: 'docker login'
+              containerRegistry:  'docker'
+            displayName:  'docker login'
           - script: |
               docker image build --file Dockerfile --tag devopsdemo .
               docker image tag devopsdemo immanuelvatta/devopsdemo
               docker push immanuelvatta/devopsdemo
+          - task: Docker@2
+            inputs:
+                command:  'logout'
+                containerRegistry:  'docker'
+              displayName:  'docker login'
 
   
   - stage: 'deploy'
